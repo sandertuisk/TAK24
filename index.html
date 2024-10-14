@@ -1,102 +1,110 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
-  <!-- Metadata and headline -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taimede Kastmise Meeldetuletaja</title>
-  <style>
-    /* Overall style */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-    }
-    /* Container style */
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    /* Heading */
-    h1 {
-      text-align: center;
-    }
-    /* Format */
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    /* Style input*/
-    input {
-      margin: 10px 0;
-      padding: 10px;
-    }
-    /* Style button */
-    button {
-      padding: 10px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    /* Button interactive color change */
-    button:hover {
-      background-color: #218838;
-    }
-    /* List styles */
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-    }
-  </style>
+    <!-- Metadata and headline -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taimede Kastmise Meeldetuletaja</title>
+    <style>
+        /* Overall style */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container style */
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Heading */
+        h1 {
+            text-align: center;
+        }
+
+        /* Format */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Style input*/
+        input {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        /* Style button */
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Button interactive color change */
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* List styles */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
 <!-- Container -->
 <div class="container">
-  <!-- Container heading -->
-  <h1>Taimede Kastmise Meeldetuletaja</h1>
-  <!-- Format for adding plants -->
-  <form id="taimeVorm">
-    <!-- Plant name input -->
-    <input type="text" id="taimeNimi" placeholder="Taimede nimi" required>
-    <!-- Interval input -->
-    <input type="number" id="kastmiseIntervall" placeholder="Kastmise intervall päevades" required>
-    <!-- Submit button -->
-    <button type="submit">Lisa Taim</button>
-  </form>
-  <!-- List of added plants with intervals-->
-  <ul id="taimeList"></ul>
+    <!-- Container heading -->
+    <h1>Taimede Kastmise Meeldetuletaja</h1>
+    <!-- Format for adding plants -->
+    <form id="taimeVorm">
+        <!-- Plant name input -->
+        <input type="text" id="taimeNimi" placeholder="Taimede nimi" required>
+        <!-- Interval input -->
+        <input type="number" id="kastmiseIntervall" placeholder="Kastmise intervall päevades" required>
+        <!-- Submit button -->
+        <button type="submit">Lisa Taim</button>
+    </form>
+    <!-- List of added plants with intervals-->
+    <ul id="taimeList"></ul>
 </div>
 <script>
-  /* Listen for the form submission event */
-  document.getElementById('taimeVorm').addEventListener('submit', function(e) {
-    /* Prevent default submission */
-    e.preventDefault();
-/* Get values from user*/
-    const taimeNimi = document.getElementById('taimeNimi').value;
-    const kastmiseIntervall = document.getElementById('kastmiseIntervall').value;
-    /* Get plant list and create new item */
-    const taimeList = document.getElementById('taimeList');
-    const li = document.createElement('li');
-    /* Set text content of the list item */
-    li.textContent = `${taimeNimi} - Kastmise intervall: ${kastmiseIntervall} päeva`;
-/* Add the new plant to the list */
-    taimeList.appendChild(li);
-/* Reset input fields */
-    document.getElementById('taimeNimi').value = '';
-    document.getElementById('kastmiseIntervall').value = '';
+    /* Listen for the form submission event */
+    document.getElementById('taimeVorm').addEventListener('submit', function (e) {
+        /* Prevent default submission */
+        e.preventDefault();
+        /* Get values from user*/
+        const taimeNimi = document.getElementById('taimeNimi').value;
+        const kastmiseIntervall = document.getElementById('kastmiseIntervall').value;
+        /* Get plant list and create new item */
+        const taimeList = document.getElementById('taimeList');
+        const li = document.createElement('li');
+        /* Set text content of the list item */
+        li.textContent = `${taimeNimi} - Kastmise intervall: ${kastmiseIntervall} päeva`;
+        /* Add the new plant to the list */
+        taimeList.appendChild(li);
+        /* Reset input fields */
+        document.getElementById('taimeNimi').value = '';
+        document.getElementById('kastmiseIntervall').value = '';
 
-  });
+    });
 </script>
 </body>
 </html>
