@@ -3,12 +3,15 @@
 <head>
     <!-- Metadata and headline -->
     <meta charset="UTF-8">
+    <!-- Responsive design for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
     <title>Taimede Kastmise Meeldetuletaja</title>
     <style>
         /* Overall style */
         body {
             font-family: Arial, sans-serif;
+
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
@@ -56,12 +59,12 @@
             background-color: #218838;
         }
 
-        /* List styles */
+        /* Unordeded list styles */
         ul {
             list-style-type: none;
             padding: 0;
         }
-
+        /* List item syle */
         li {
             padding: 10px;
             border-bottom: 1px solid #ccc;
@@ -85,16 +88,20 @@
     <!-- List of added plants with intervals-->
     <ul id="taimeList"></ul>
 </div>
+<!-- JavaScript to handle form submission and list rendering -->
 <script>
     /* Listen for the form submission event */
     document.getElementById('taimeVorm').addEventListener('submit', function (e) {
         /* Prevent default submission */
         e.preventDefault();
         /* Get values from user*/
+        /* Get the watering interval from the input field */
         const taimeNimi = document.getElementById('taimeNimi').value;
+        /* Get the list element where plants will be displayed */
         const kastmiseIntervall = document.getElementById('kastmiseIntervall').value;
         /* Get plant list and create new item */
         const taimeList = document.getElementById('taimeList');
+        /* Create a new list item element for the plant */
         const li = document.createElement('li');
         /* Set text content of the list item */
         li.textContent = `${taimeNimi} - Kastmise intervall: ${kastmiseIntervall} päeva`;
