@@ -1,117 +1,141 @@
-<!DOCTYPE html>
-<html lang="et">
+<!DOCTYPE html> <!-- Määrab dokumendi tüübiks HTML5 -->
+
+<html lang="et"> <!-- Määrab dokumendi keeleks eesti keele -->
+
 <head>
-    <!-- Metadata and headline -->
+
+    <!-- Metadata -->
     <meta charset="UTF-8">
-    <!-- Responsive design for mobile -->
+
+    <!-- Paindlik ekraanisuurus -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Page title -->
+
+    <!-- Lehe pealkiri -->
     <title>Taimede Kastmise Meeldetuletaja</title>
+
     <style>
-        /* Overall style */
+        /* Stiil */
+
+        /* Keha stiilid */
         body {
-            font-family: Arial, sans-serif;
-
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
+            font-family: Arial, sans-serif; /* Kirjatüüp */
+            background-color: #f4f4f4; /* Taustavärv */
+            margin: 0; /* Marginaal */
+            padding: 20px; /* Elemendi sisemise ääre täidis */
         }
 
-        /* Container style */
+        /* Konteiner */
         .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* Määrab konteineri maksimaalse laiuse 600 pikslile */
+            margin: auto; /* Keskendab konteineri horisontaalselt */
+            background: white; /* Määrab konteineri taustavärviks valge */
+            padding: 20px; /* Lisab konteineri sisemisele äärele täidise */
+            border-radius: 8px; /* Annab konteineri nurkadele ümaruse */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Lisab konteinerile varju */
         }
 
-        /* Heading */
+        /* Pealkiri */
         h1 {
-            text-align: center;
+            text-align: center; /* Tekstiasetus */
         }
 
-        /* Format */
+        /* Vormi paigutus */
         form {
-            display: flex;
-            flex-direction: column;
+            display: flex; /* Paigutab vormi elemendid paindliku konteineri süsteemis */
+            flex-direction: column; /* Asetab vormi elemendid vertikaalsesse joondusse */
         }
 
-        /* Style input*/
+        /* Inputi stiil */
         input {
-            margin: 10px 0;
-            padding: 10px;
+            margin: 10px 0; /* Lisab marginaali */
+            padding: 10px; /* Lisab täidise */
         }
 
-        /* Style button */
+        /* Nupu stiil */
         button {
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 10px; /* Lisab nupule täidise */
+            background-color: #28a745; /* Nupu taustavärv */
+            color: white; /* Nupu tekstivärv */
+            border: none; /* Eemaldab nupult piiri */
+            border-radius: 5px; /* Nupu nurkade ümarus */
+            cursor: pointer; /* Hiirekursori stiil */
         }
 
-        /* Button interactive color change */
+        /* Interaktiivne nupu värvi muutus */
         button:hover {
-            background-color: #218838;
+            background-color: #218838; /* Muudab nupu värvi hover-efekti ajal */
         }
 
-        /* Unordeded list styles */
+        /* Ebakorrapärane list */
         ul {
-            list-style-type: none;
-            padding: 0;
+            list-style-type: none; /* Eemaldab loendi markerid */
+            padding: 0; /* Eemaldab sisemise ääre */
         }
-        /* List item syle */
+
+        /* Korrapärane list */
         li {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
+            padding: 10px; /* Lisab täidise */
+            border-bottom: 1px solid #ccc; /* Lisab halli piiri */
         }
+
     </style>
 </head>
+
 <body>
-<!-- Container -->
+
+<!-- Konteiner -->
 <div class="container">
-    <!-- Container heading -->
+
+    <!-- Konteineri pealkiri -->
     <h1>Taimede Kastmise Meeldetuletaja</h1>
-    <!-- Format for adding plants -->
+
+    <!-- Taimede lisamise vorm -->
     <form id="taimeVorm">
-        <!-- Plant name input -->
+
+        <!-- Taime nime input -->
         <input type="text" id="taimeNimi" placeholder="Taimede nimi" required>
-        <!-- Interval input -->
+
+        <!-- Kastmise intervalli input -->
         <input type="number" id="kastmiseIntervall" placeholder="Kastmise intervall päevades" required>
-        <!-- Submit button -->
+
+        <!-- Nupp saada -->
         <button type="submit">Lisa Taim</button>
     </form>
-    <!-- List of added plants with intervals-->
+
+    <!-- Taimede list koos intervallidega-->
     <ul id="taimeList"></ul>
+
 </div>
-<!-- JavaScript to handle form submission and list rendering -->
+
+<!-- JavaScript, et manageerida listi täitmist ja esitamist -->
 <script>
-    /* Listen for the form submission event */
+
+    /* Vormi saatmise ootamine */
+
     document.getElementById('taimeVorm').addEventListener('submit', function (e) {
-        /* Prevent default submission */
-        e.preventDefault();
-        /* Get values from user*/
-        /* Get the watering interval from the input field */
-        const taimeNimi = document.getElementById('taimeNimi').value;
-        /* Get the list element where plants will be displayed */
-        const kastmiseIntervall = document.getElementById('kastmiseIntervall').value;
-        /* Get plant list and create new item */
-        const taimeList = document.getElementById('taimeList');
-        /* Create a new list item element for the plant */
-        const li = document.createElement('li');
-        /* Set text content of the list item */
-        li.textContent = `${taimeNimi} - Kastmise intervall: ${kastmiseIntervall} päeva`;
-        /* Add the new plant to the list */
-        taimeList.appendChild(li);
-        /* Reset input fields */
+
+        e.preventDefault(); /* Takistab tühja saatmist */
+
+        /* Andmete saamine kasutajalt */
+        const taimeNimi = document.getElementById('taimeNimi').value; /* Taimenime andmete saamine input alalt */
+        const kastmiseIntervall = document.getElementById('kastmiseIntervall').value; /* Kastmise intervalli andmete saamine input alalt */
+
+        /* Teeb uue taimeelemendi */
+        const taimeList = document.getElementById('taimeList'); /* Taime listi hankimine */
+        const li = document.createElement('li'); /* Loob uue listi elemendi */
+
+        li.textContent = `${taimeNimi} - Kastmise intervall: ${kastmiseIntervall} päeva`; /* Lisab konteksti */
+
+        taimeList.appendChild(li); /* Lisab listi */
+
+        /* Tühistab input alad, et saaks uuesti lisada */
         document.getElementById('taimeNimi').value = '';
         document.getElementById('kastmiseIntervall').value = '';
 
     });
+
 </script>
+
 </body>
+
 </html>
